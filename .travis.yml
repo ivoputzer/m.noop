@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - '6.0.0'
+  - '6.1.0'
+  - '6.2.0'
+  - '6.2.1'
+deploy:
+  provider: npm
+  email: ivo.putzer@gmail.com
+  api_key:
+    secure: L+tCIPk+8JA34KHo1AGPWgBsV0ba1CPUWAu1wLcQunXwD4nZLitRaMSY46wfORQyBtzjp3juM7scMy3zNYe9BW4Mpfn3SoCz7U/kwG/udFLPJXGZNrJUgVXLcsm+bvxGIW3b+cN2y3awEnmn+ZJWQyAB84foGPK2NlhFshUas2sLX+3KoxiBeMjSQkGnEdjJdYSGjqTL/HBfS14e8OCWeutX29UywXhipiUKv6FQfU0FE/6jz79IK6rWcOK6NY0BOuEUz2rrT+Un6xfg3qaP6IXcC9zlRI28cs+iX3Q955FNcDoCUIwm/6WuDJc6C3g0I+NNn+EGOr4IcgMLSwoAPMWaEVguEijG1BYtAMtmwJCY+mGd/6/AiGW0G6KagX+A84EXiUemo9AVSZnAwxZkasQnJmWExwpFxAKIDrKuoG31/Yich6/M+VPW2pJYm/vFUCVqs1AbkAQYCagoK8zwIhVFp0bAZvinhrTiJmxh/5IsTlQ2ouciGcVPZ99wbtLGH/lyjY+JGd5gXfMiyW/pF7qp4olV0G33EM0Dj2JPxFhJG/+uV3HCB/ig/9EVFUN0vubmFz09qkJLignF3aHtNNGmZxpiPWaAHp+XX/Wmc7rimDEyWLtXh0E9k63LHpMUpsfRk/pRBHdFNnxYLcx5FhmmRo3s6954ZxzSrI4/bCQ=
+  on:
+    tags: true
+    repo: ivoputzer/m.noop
