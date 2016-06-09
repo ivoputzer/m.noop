@@ -1,0 +1,28 @@
+{
+  "name": "m.noop",
+  "version": "1.0.0",
+  "description": "noop utility from the m.icro series",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivoputzer/m.noop.git"
+  },
+  "keywords": [
+    "noop",
+    "no-op",
+    "m.icro",
+    "micro"
+  ],
+  "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivoputzer/m.noop/issues"
+  },
+  "homepage": "https://github.com/ivoputzer/m.noop#readme",
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  }
+}
