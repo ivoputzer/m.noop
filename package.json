@@ -30,7 +30,6 @@
   "homepage": "https://github.com/ivoputzer/m.noop#readme",
   "devDependencies": {
     "m.test": "0.0.57",
-    "mocha": "^2.5.3",
     "standard": "^11.0.1"
   },
   "engines": {
