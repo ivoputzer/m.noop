@@ -27,6 +27,6 @@ jobs:
         repo: ivoputzer/m.noop
         tags: false
         branch: master
-  allow_failures: # prior to lts version and module spec
+  allow_failures: # m.test
     - node_js: 5
     - node_js: 4
