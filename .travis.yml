@@ -1,15 +1,32 @@
 language: node_js
+install: npm install --no-optional
+git:
+  depth: 1
 node_js:
-- 6.0.0
-- 6.1.0
-- 6.2.0
-- 6.2.1
-deploy:
-  provider: npm
-  email: ivo.putzer@gmail.com
-  api_key:
-    secure: Vb/pXx0fvsW+6GJfp+1S+pJB3JjbPTS1jLDYOFpUSMoNRWvrfJvljZ1wqfGOVpQNP8nf+ri3Rv4hJQ6kAKrgWnDRv3/d5IPNd94TYwuvJ36vjQlIQGgR8mvOelcjdLS0vUZrSwL7pBOi8YBdPHkY8j+3LVCeYG+wu2Moubr2DA8c4mwScOL2cR0Rcjh4kDb8N4jAJKle1HOAloZk1BEQYQWgLcWTjk4FtIBnG6h2XlAPC4kLQ5i39hP195tMz3CwahIO+R/8fzJlFZijjmGxaS3KxK9IjF+qQG1Iv7gWbCI7fUJLr8NlEZt4sQAF0j7Pk4n+5szUrW1eUubrlzyo90zGaRj8ZXamvoV00i1aNvkPW2X6XVdMcfckelSWYnqehgqGYslYT8Bwzr2gMCuwATU8+KPqrAVS6CuzFUZBit24FsQ7mwSkuy1DSPUUiLQG5/IlY2mGOsQiP7dvvo3DxfBsJb31aryDKVHNjGCM2SLYF/PbrsrPxZSVzKlrCNB+CufTU9q4Od3BVx5k0DNsehD+zSVICFaphCcvQiY8gTMe+gxOS/QQbXiDfvQgj/FK9nMZHJTSq110tSynej78z8V6jFnXOELA4DtBmkKgE4+OV368rcxQuY/AkklHzDrbTQNSx5hmyeP5mEMR5Ch20rTTj7ZU7wCYlmtojUob8NM=
-  on:
-    repo: ivoputzer/m.noop
-    branch: master
-    tags: true
+- 9
+- 8
+- 7
+- 6
+- 5
+- 4
+jobs:
+  include:
+  - stage: coverage
+    install: npm install istanbul coveralls
+    script: npm run coverage
+    after_success: cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+  - stage: deploy
+    install: skip
+    script: skip
+    deploy:
+      provider: npm
+      email: ivo.putzer@gmail.com
+      api_key:
+        secure: Vb/pXx0fvsW+6GJfp+1S+pJB3JjbPTS1jLDYOFpUSMoNRWvrfJvljZ1wqfGOVpQNP8nf+ri3Rv4hJQ6kAKrgWnDRv3/d5IPNd94TYwuvJ36vjQlIQGgR8mvOelcjdLS0vUZrSwL7pBOi8YBdPHkY8j+3LVCeYG+wu2Moubr2DA8c4mwScOL2cR0Rcjh4kDb8N4jAJKle1HOAloZk1BEQYQWgLcWTjk4FtIBnG6h2XlAPC4kLQ5i39hP195tMz3CwahIO+R/8fzJlFZijjmGxaS3KxK9IjF+qQG1Iv7gWbCI7fUJLr8NlEZt4sQAF0j7Pk4n+5szUrW1eUubrlzyo90zGaRj8ZXamvoV00i1aNvkPW2X6XVdMcfckelSWYnqehgqGYslYT8Bwzr2gMCuwATU8+KPqrAVS6CuzFUZBit24FsQ7mwSkuy1DSPUUiLQG5/IlY2mGOsQiP7dvvo3DxfBsJb31aryDKVHNjGCM2SLYF/PbrsrPxZSVzKlrCNB+CufTU9q4Od3BVx5k0DNsehD+zSVICFaphCcvQiY8gTMe+gxOS/QQbXiDfvQgj/FK9nMZHJTSq110tSynej78z8V6jFnXOELA4DtBmkKgE4+OV368rcxQuY/AkklHzDrbTQNSx5hmyeP5mEMR5Ch20rTTj7ZU7wCYlmtojUob8NM=
+      on:
+        repo: ivoputzer/m.noop
+        tags: false
+        branch: master
+  allow_failures: # prior to lts version and module spec
+    - node_js: 5
+    - node_js: 4

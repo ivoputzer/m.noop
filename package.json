@@ -4,8 +4,10 @@
   "description": "noop utility from the m.icro series",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "preversion": "npm test"
+    "node": "node",
+    "pretest": "standard",
+    "test": "m.test",
+    "coverage": "node --require ./node_modules/m.test/global.js ./node_modules/istanbul/lib/cli.js cover --print detail test"
   },
   "repository": {
     "type": "git",
@@ -27,9 +29,19 @@
   },
   "homepage": "https://github.com/ivoputzer/m.noop#readme",
   "devDependencies": {
-    "mocha": "^2.5.3"
+    "m.test": "0.0.57",
+    "mocha": "^2.5.3",
+    "standard": "^11.0.1"
   },
   "engines": {
     "node": ">=6.0.0"
+  },
+  "standard": {
+    "globals": [
+      "test"
+    ]
+  },
+  "optionalDependencies": {
+    "istanbul": "^0.4.5"
   }
 }

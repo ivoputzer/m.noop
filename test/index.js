@@ -1,18 +1,13 @@
-const {equal, notEqual} = require('assert')
-const {noop} = require('..')
+const {equal} = require('assert')
 
-describe('m.icro', function () {
-  it('uses standard module loading', () => {
-    let module = require('..')
-    notEqual(module.noop, undefined)
-  })
-})
+test('exports.noop', () => {
+  const {noop} = require('..')
 
-describe('m.noop', () => {
-  it('exports a noop function', () => {
+  test('is callable', () => {
     equal(noop, Function.prototype)
   })
-  it('returns void when called', () => {
+
+  test('returns undefined when called', () => {
     equal(noop(), undefined)
   })
 })
